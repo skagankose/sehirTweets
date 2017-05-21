@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# encoding: utf-8
-
 import tweepy
 import csv
 import re
