@@ -6,10 +6,10 @@ import csv
 import numpy as np
 
 # Twitter credentials
-consumer_key = "IivwDls7fYU6WTdzatJGxJ4Re"
-consumer_secret = "xwsedLJdvvgT3EaMQwPA24LtYb4067EE2avf3ogCxyfRGJ0kCw"
-access_token = "4590451846-yWybwxLHOGCpCwEmh5XgqcWgIbi505UvjJ1nP0y"
-access_token_secret = "EWq727mJBVid759fqKJWVOacHYqYX4he1AVOeGV7cwkj6"
+consumer_key = ""
+consumer_secret = ""
+access_token = ""
+access_token_secret = ""
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
