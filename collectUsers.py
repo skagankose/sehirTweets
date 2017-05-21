@@ -53,7 +53,6 @@ for userName in userNameList:
             except Exception as secondError:
                 print("Error : %s" % secondError)
 
-
 newFolloweesDict = dict()
 newFollowersDict = dict()
 for userName in followeesDict:

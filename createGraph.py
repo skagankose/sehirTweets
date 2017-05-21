@@ -4,10 +4,10 @@ import numpy as np
 import csv
 
 # Load API
-consumer_key = "IivwDls7fYU6WTdzatJGxJ4Re"
-consumer_secret = "xwsedLJdvvgT3EaMQwPA24LtYb4067EE2avf3ogCxyfRGJ0kCw"
-access_token = "4590451846-yWybwxLHOGCpCwEmh5XgqcWgIbi505UvjJ1nP0y"
-access_token_secret = "EWq727mJBVid759fqKJWVOacHYqYX4he1AVOeGV7cwkj6"
+consumer_key = ""
+consumer_secret = ""
+access_token = ""
+access_token_secret = ""
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -85,14 +85,13 @@ with open('data/graph/node.csv', 'a') as outcsv:
     for (index, anID) in enumerate(IDs):
 
         print("Index : %d" % index)
-        if index > 899 and index < 1035:
 
-            try:
-                userName = API.get_user(anID).screen_name
-            except Exception as error:
-                print("Error : %s" % error)
-                userName = "n/a"
-            writer.writerow([index, anID, userName])
+        try:
+            userName = API.get_user(anID).screen_name
+        except Exception as error:
+            print("Error : %s" % error)
+            userName = "n/a"
+        writer.writerow([index, anID, userName])
 
 with open('data/graph/edge.csv', 'a') as outcsv:
     writer = csv.writer(outcsv, delimiter=',', lineterminator='\n')
