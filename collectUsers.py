@@ -66,36 +66,3 @@ for userName in followeesDict:
 # Save dictionaries
 np.save('data/dictionary/followers.npy', newFollowersDict)
 np.save('data/dictionary/followees.npy', newFolloweesDict)
-
-IDList = set()
-for i in newFolloweesDict:
-    IDList.add(i)
-    for ii in newFolloweesDict[i]:
-        IDList.add(ii)
-for j in newFollowersDict:
-    IDList.add(j)
-    for jj in newFollowersDict[j]:
-        IDList.add(jj)
-IDSet = set(IDList)
-
-# Save graph nodes and edges
-with open('data/graph/edges.csv', 'a') as out:
-
-    writer = csv.writer(out, delimiter=',', lineterminator='\n')
-    writer.writerow(['source', 'target', 'type', 'weight'])
-
-    for userID in newFollowersDict:
-        for followerID in newFollowersDict[userID]:
-            writer.writerow([followerID, userID, 'Directed', 1])
-
-    for userID in newFolloweesDict:
-        for followeeID in newFolloweesDict[userID]:
-            writer.writerow([userID, followeeID, 'Directed', 1])
-
-with open('data/graph/nodes.csv', 'a') as out:
-
-    writer = csv.writer(out, delimiter=',', lineterminator='\n')
-    writer.writerow(['id'])
-
-    for userID in IDSet:
-        writer.writerow([userID])
